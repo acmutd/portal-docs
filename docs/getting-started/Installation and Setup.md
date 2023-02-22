@@ -8,10 +8,12 @@ We'll first need to get you set up with some tools and configurations to ensure 
 
 ### Clone the repository
 
-To clone the repository
+To get started, clone the following repositories
 
 ```
-git clone https://github.com/acmutd/portal-next.git
+$ git clone https://github.com/acmutd/portal-next.git
+$ git clone https://github.com/acmutd/portal-serverless.git
+$ git clone https://github.com/acmutd/portal-docs.git
 ```
 
 ### npm
@@ -19,6 +21,24 @@ git clone https://github.com/acmutd/portal-next.git
 Ensure that you're using npm version of at least 8.6.0. There's a bug on previous versions that prevents npm from resolving local package dependencies within the npm workspace.
 
 To update npm to the latest version, run `npm install -g npm@latest` or if you have [Node Version Manager](https://github.com/nvm-sh/nvm) installed `nvm install-latest-npm`
+
+### node
+
+All repositories in the ACM Member Portal Project requires node version at least 16.14.
+
+### Global packages
+
+`portal-next` requires the following global npm packages:
+
+- Prisma
+- Doppler
+
+These packages can be installed as follow:
+
+```
+$ npm install -g prisma
+$ npm install -g doppler
+```
 
 ### Doppler
 
@@ -60,36 +80,28 @@ The next steps differ slightly for officers and for contributors.
 
 Doppler will only inject the secrets as environment variables for commands or scripts which are prepended with `doppler run -- `. This is already prepended onto scripts in package.json, so you don't need to worry about prepending this yourself.
 
-### Clone
-
-- Clone the repository
-- Run `git clone https://github.com/acmutd/portal-next`
-
-### Visual Studio Code
-
-This step is only relevant if you use VS Code.
-
-Open up the project as a VS Code workspace.
-
-#### CLI
-
-- Navigate to the root of the respository
-- Run `code workspace.code-workspace`
-
-#### GUI
-
-- File > Open Workspace from File... > `workspace.code-workspace`
-
-This opens up the monorepo in VS Code as a [multi-root workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces), a feature where you can have multiple root folders in one explorer view. You'll see the various packages in the monorepo in the explorer view. This ensures that compatible VSCode extensions, such as ESLint and Prettier, scope their configurations to the specific configurations for each individual project, as opposed to using the configurations in the root directory. This is a limitation of the VS Code extensions, and will not impact lint-staged or lint and format scripts in each package.
-
-You'll be prompted to install recommended extensions. ESLint will show errors in your editor with helpful prompts. Prettier will take care of formatting your code. Workspaces allows for easy configuration of the multi-root workspace.
-
 ### Building the Project
 
-From the root of the repo, use Turborepo to build all the dependencies.
+To install all dependencies, run the following command:
 
 ```
-npx turbo run build
+$ npm install
 ```
 
-It is recommended to use `turbo` to run scripts; `turbo` can only be run from the root of the repository.
+To start `portal-next`, run the following commands:
+
+```
+$ npm run prisma:generate
+$ npm run dev
+```
+
+To build `portal-next`, run the following commands:
+
+```
+$ npm run prisma:generate
+$ npm run build
+```
+
+:::note
+`npm run prisma:generate` is only required to be run after installing new dependencies or updating the Prisma schema.
+:::

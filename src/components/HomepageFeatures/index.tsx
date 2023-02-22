@@ -1,42 +1,42 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Leadership Data',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "portal-next",
+    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
     description: (
       <>
-        Learn what data is present on the Leadership website, how it was created and indexed, how it
-        is stored in the cloud, and finally how strategies like caching are used to optimize data
-        queries.
+        This repository is what contains all the source code of ACM Member
+        Portal v2.
       </>
     ),
   },
   {
-    title: 'GraphQL API',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "portal-docs",
+    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
     description: (
       <>
-        Learn how the GraphQL API provided by the leadership site was designed, various ways in
-        which it can be used and how access to the API is secured to only allow ACM officers.
+        This repository contains all the documentations that one needs to start
+        doing some development on portal-next.
       </>
     ),
   },
   {
-    title: 'Microservices',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "portal-serverless",
+    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <>
-        Learn how the birthday and anniversary programs are run with a deep dive into where the data
-        is stored, how it is queried and how the project is deployed to run daily.
+        This repository contains all serverless functions that allow Member
+        Portal to interact with third-party external services such as SendGrid,
+        AWS, and Slack.
       </>
     ),
   },
@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>

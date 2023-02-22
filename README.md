@@ -1,3 +1,3 @@
 # Leadership Documentation
 
-Documentation website for the [ACM Leadership Site](https://leadership.acmutd.co). Built using [Docusaurus 2](https://docusaurus.io)
+Development documentation website for the [ACM Member Portal v2](https://next.portal.acmutd.co). Built using [Docusaurus 2](https://docusaurus.io)
